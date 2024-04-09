@@ -12,9 +12,13 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Ingrese un numero entero: ");
-		System.out.println("Si es par x 3, Si es impar impar x22: ");
+		System.out.println("Si es par x 3, Si es impar impar x2: ");
+		
 		//leer el nro ingresado
 		int num = sc.nextInt();
+		
+		//Cerrar Scanner
+		sc.close();
 		
 		if ((num%2)==0) {
 			System.out.println("El numero es par");
@@ -26,6 +30,8 @@ public class Main {
 			num=num*2;
 			System.out.println("Resultado:"+num);
 		}
+		
+		
 	}
 
 }

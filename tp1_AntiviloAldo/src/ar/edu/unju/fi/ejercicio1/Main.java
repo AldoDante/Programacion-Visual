@@ -3,6 +3,7 @@ package ar.edu.unju.fi.ejercicio1;
 public class Main {
 
 	public static void main(String[] args) {
+		
 		// Ejercicio 1
 		
 		 	float num1 = 8;
