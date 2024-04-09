@@ -5,13 +5,13 @@ public class Main {
 	public static void main(String[] args) {
 		// Ejercicio 1
 		
-		 	int num1 = 8;
-	        int num2 = 5;
-	        int num3 = 1;
-	        int num4 = 20;
-	        int num5 = 9;	    
+		 	float num1 = 8;
+	        float num2 = 5;
+	        float num3 = 1;
+	        float num4 = 20;
+	        float num5 = 9;	    
 	        
-	        double promedio = (num1 + num2 + num3 + num4 + num5) / 5.0;	   
+	        float promedio = (num1 + num2 + num3 + num4 + num5) / 5;	   
 	        
 	        System.out.println("El promedio es: " + promedio);
 		
