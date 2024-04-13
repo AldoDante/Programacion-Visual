@@ -24,6 +24,7 @@ public class Main {
 				num=num*i;
 				System.out.println(numero+" x "+i+" = "+num);
 			}
-		}		
+		}
+		sn.close();
 	}
 }
