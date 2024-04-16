@@ -13,7 +13,7 @@ public class Main {
 		
 		do {
 	        
-			System.out.println("Iingrese un número entero cero y diez:");
+			System.out.println("Iingrese un número entre cero y diez:");
 	        num = sn.nextInt();
 	        
 	        // Verificar si el número está dentro del rango
