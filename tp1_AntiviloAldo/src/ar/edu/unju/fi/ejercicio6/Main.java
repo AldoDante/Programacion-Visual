@@ -13,8 +13,11 @@ public class Main {
         // Constructor por defecto
         
         Persona persona1 = new Persona();
-        System.out.println("Persona 1 Sin Datos");
-       
+        try {
+          persona1.mostrarDatos();
+        } catch(NullPointerException e){
+        	System.out.println("\nPersona 1 Sin Datos\n");
+       }
 
         // Constructor parametrizado
         
