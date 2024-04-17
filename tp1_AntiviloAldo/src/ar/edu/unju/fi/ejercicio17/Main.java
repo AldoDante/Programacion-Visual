@@ -49,13 +49,13 @@ public class Main {
                     modificarDatos(sc, jugadores);
                     break;
                 case 5:
-                   // eliminarJugador(sc, jugadores);
+                	eliminarJugador(sc, jugadores);
                     break;
                 case 6:
-                 //   CantidadJugadores(jugadores);
+                    CantidadJugadores(jugadores);
                     break;
                 case 7:
-                  //  JugadoresNacionalidad(sc, jugadores);
+                   JugadoresNacionalidad(sc, jugadores);
                     break;
                 case 8:
                     System.out.println("¡Hasta luego!");
@@ -195,6 +195,68 @@ public class Main {
             } catch (NumberFormatException e) {
                 System.out.println("Error: Formato de fecha, estatura o peso incorrecto.");
             }
+        }
+        
+        private static void eliminarJugador(Scanner sc, List<Jugador> jugadores) {
+        	sc.nextLine();
+        	if(jugadores.isEmpty()) {
+        		System.err.println("\nLista Vacia:");
+        	} else {
+            try {
+                System.out.println("\nEliminar un jugador:");
+                System.out.print("Ingrese el nombre: ");
+                String nombre = sc.nextLine();
+                System.out.print("Ingrese el apellido: ");
+                String apellido = sc.nextLine();
+
+                boolean encontrado = false;
+                for (int i = 0; i < jugadores.size(); i++) {
+                    Jugador jugador = jugadores.get(i);
+                    if (jugador.getNombre().equalsIgnoreCase(nombre) && jugador.getApellido().equalsIgnoreCase(apellido)) {
+                        encontrado = true;
+                        jugadores.remove(i);
+                        System.out.println("Jugador eliminado.");
+                        break;
+                    }
+                }
+                if (!encontrado) {
+                    System.out.println("No se encontró ningún jugador con ese nombre y apellido.");
+                }
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());}
+        	}        
+        }
+        
+        //Cantidad de Jugadores
+        
+        private static void CantidadJugadores(List<Jugador> jugadores) {
+        	if(jugadores.isEmpty()) {
+        		System.err.println("\nLista Vacia:");
+        	} else {
+        		System.out.println("\nCantidad total de jugadores: " + jugadores.size());
+        	}
+        	
+        }
+        
+        private static void JugadoresNacionalidad(Scanner scanner, List<Jugador> jugadores) {
+        	
+        	if (jugadores.isEmpty()) {
+        		System.err.println("\nLista Vacia");
+        	} else {
+          
+                System.out.println("\nMostrar la cantidad de jugadores que pertenecen a una nacionalidad:");
+                System.out.print("Ingrese la nacionalidad: ");
+                String nacionalidad = scanner.nextLine();
+
+                int cantidad = 0;
+                for (Jugador jugador : jugadores) {
+                    if (jugador.getNacionalidad().equalsIgnoreCase(nacionalidad)) {
+                        cantidad++;
+                    }
+                }
+                System.out.println("Cantidad de jugadores de la nacionalidad '" + nacionalidad + "': " + cantidad);
+            
+        	}
         }
 }
 
