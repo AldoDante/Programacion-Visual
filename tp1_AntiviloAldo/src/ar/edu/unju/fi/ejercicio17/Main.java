@@ -17,7 +17,7 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		List <Jugador> jugadores = new ArrayList<Jugador>();
+		List <Jugador> jugadores = new ArrayList<>();
 		
 		int op;
 		
@@ -32,6 +32,7 @@ public class Main {
             System.out.println("7 - Mostrar la cantidad de jugadores que pertenecen a una nacionalidad");
             System.out.println("8 - Salir");
             
+            try {
             System.out.print("Ingrese la opción deseada: ");
             op = sc.nextInt();
           
@@ -58,16 +59,22 @@ public class Main {
                    JugadoresNacionalidad(sc, jugadores);
                     break;
                 case 8:
-                    System.out.println("¡Hasta luego!");
+                    System.out.println("¡Chaito!");
                     break;
                 default:
-                    System.out.println("Opción no válida. Por favor, ingrese una opción válida.");
+                    System.out.println("Opción no válida, ingrese un numero [1-8].");
                 }
-         
+            } catch (InputMismatchException e) {
+            	sc.nextLine();
+            	System.err.println("\nError en el formato");
+            	op=0;
+            } finally {
+            	//System.out.println("\nVuelva a ingresar una opcion");
+            	System.out.println("\n-----------------------"); 
+            }
         } while (op != 8);
-
-        sc.close();
-        }
+		 sc.close();
+	}
         
         // Alta de Jugadores
         
@@ -99,10 +106,15 @@ public class Main {
 
                 Jugador jugador = new Jugador(nombre, apellido, fechaNac, nacionalidad, estatura, peso, posicion);
                 jugadores.add(jugador);
-                System.out.println("\nJugador agregado correctamente.");               
+                System.out.println("\nJugador agregado correctamente.");
+                
             } catch (NumberFormatException | ArrayIndexOutOfBoundsException | InputMismatchException e) {
-                System.err.println("\nError: Formato de fecha incorrecto.");
+            	//sc.nextLine();
+            	System.err.println("\nError: Formato de datos incorrecto.");            
+            }  finally {                
+                System.out.println("\nIngrese la siguiente opcion.");
             }
+            
         }
         
         private static void datosJugador(Scanner sc, List<Jugador> jugadores) {
@@ -146,18 +158,18 @@ public class Main {
         
         private static void modificarDatos(Scanner sc, List<Jugador> jugadores) {
         		sc.nextLine();
-            try {
+            
                 System.out.println("\nModificar los datos de un jugador:");
                 System.out.print("Ingrese el nombre: ");
-                String nombre = sc.nextLine();
-                sc.nextLine();
+                String nombre = sc.nextLine();             
                 System.out.print("Ingrese el apellido: ");
                 String apellido = sc.nextLine();
 
                 boolean encontrado = false;
                 for (Jugador jugador : jugadores) {
                     if (jugador.getNombre().equalsIgnoreCase(nombre) && jugador.getApellido().equalsIgnoreCase(apellido)) {
-                        encontrado = true;
+                    	try {
+                    	encontrado = true;
                         System.out.print("Nuevo nombre: ");
                         jugador.setNombre(sc.nextLine());
                         System.out.print("Nuevo apellido: ");
@@ -180,22 +192,24 @@ public class Main {
                         jugador.setPosicion(sc.nextLine());
                         System.out.println("Datos del jugador modificados correctamente.");
                         break;
+                    	} catch (Exception e) {
+                            System.out.println("\nError: Formato de fecha, estatura o peso incorrecto.");                            
+                        }  finally {                
+                           System.out.println("\nIntente de nuevo.");
+                        }
                     }
                 }
                 if (!encontrado) {
                     System.out.println("No se encontró ningún jugador con ese nombre y apellido.");
                 }
-            } catch (NumberFormatException e) {
-                System.out.println("Error: Formato de fecha, estatura o peso incorrecto.");
-            }
+            
         }
         
         private static void eliminarJugador(Scanner sc, List<Jugador> jugadores) {
         	sc.nextLine();
         	if(jugadores.isEmpty()) {
         		System.err.println("\nLista Vacia:");
-        	} else {
-            try {
+        	} else {          
                 System.out.println("\nEliminar un jugador:");
                 System.out.print("Ingrese el nombre: ");
                 String nombre = sc.nextLine();
@@ -208,15 +222,13 @@ public class Main {
                     if (jugador.getNombre().equalsIgnoreCase(nombre) && jugador.getApellido().equalsIgnoreCase(apellido)) {
                         encontrado = true;
                         jugadores.remove(i);
-                        System.out.println("Jugador eliminado.");
+                        System.err.println("\nJugador eliminado.");
                         break;
                     }
                 }
                 if (!encontrado) {
-                    System.out.println("No se encontró ningún jugador con ese nombre y apellido.");
-                }
-            } catch (Exception e) {
-                System.out.println("Error: " + e.getMessage());}
+                    System.out.println("\nNo se encontró ningún jugador con ese nombre y apellido.");
+                }          
         	}        
         }
         
@@ -231,15 +243,16 @@ public class Main {
         	
         }
         
-        private static void JugadoresNacionalidad(Scanner scanner, List<Jugador> jugadores) {
+        private static void JugadoresNacionalidad(Scanner sc, List<Jugador> jugadores) {
+        	sc.nextLine();
         	
         	if (jugadores.isEmpty()) {
         		System.err.println("\nLista Vacia");
         	} else {
           
                 System.out.println("\nMostrar la cantidad de jugadores que pertenecen a una nacionalidad:");
-                System.out.print("Ingrese la nacionalidad: ");
-                String nacionalidad = scanner.nextLine();
+                System.out.print("\nIngrese la nacionalidad: ");
+                String nacionalidad = sc.nextLine();
 
                 int cantidad = 0;
                 for (Jugador jugador : jugadores) {
