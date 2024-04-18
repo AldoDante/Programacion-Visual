@@ -37,32 +37,15 @@ public class Main {
             op = sc.nextInt();
           
             switch (op) {
-            	case 1:
-                    alta(sc, jugadores);
-                    break;
-                case 2:
-                	datosJugador(sc, jugadores);
-                    break;
-                case 3:
-                	mostrarOrdenados(jugadores);
-                    break;
-                case 4:
-                    modificarDatos(sc, jugadores);
-                    break;
-                case 5:
-                	eliminarJugador(sc, jugadores);
-                    break;
-                case 6:
-                    CantidadJugadores(jugadores);
-                    break;
-                case 7:
-                   JugadoresNacionalidad(sc, jugadores);
-                    break;
-                case 8:
-                    System.out.println("¡Chaito!");
-                    break;
-                default:
-                    System.out.println("Opción no válida, ingrese un numero [1-8].");
+            	case 1: alta(sc, jugadores); break;
+                case 2: datosJugador(sc, jugadores); break;               	
+                case 3: mostrarOrdenados(jugadores); break;
+                case 4: modificarDatos(sc, jugadores);break;
+                case 5: eliminarJugador(sc, jugadores); break;
+                case 6: CantidadJugadores(jugadores);  break;          
+                case 7: JugadoresNacionalidad(sc, jugadores); break;
+                case 8:	System.out.println("¡Chaito!"); break;
+                default:System.out.println("Opción no válida, ingrese un numero [1-8].");      
                 }
             } catch (InputMismatchException e) {
             	sc.nextLine();
