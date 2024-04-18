@@ -81,12 +81,12 @@ public class Main {
                 String apellido = sc.nextLine();
                 System.out.print("Ingrese la fecha de nacimiento (en formato dd/mm/yyyy): ");
                 String fechaStr = sc.nextLine();
-                Calendar fechaNacimiento = Calendar.getInstance();
+                Calendar fechaNac = Calendar.getInstance();
                 String[] partesFecha = fechaStr.split("/");
                 int dia = Integer.parseInt(partesFecha[0]);
                 int mes = Integer.parseInt(partesFecha[1]) - 1;
                 int anio = Integer.parseInt(partesFecha[2]);
-                fechaNacimiento.set(anio, mes, dia);
+                fechaNac.set(anio, mes, dia);
                 System.out.print("Ingrese la nacionalidad: ");
                 String nacionalidad = sc.nextLine();
                 System.out.print("Ingrese la estatura: ");
@@ -97,16 +97,9 @@ public class Main {
                 System.out.print("Ingrese la posición (delantero, medio, defensa, arquero): ");
                 String posicion = sc.nextLine();
 
-                Jugador jugador = new Jugador(nombre, apellido, fechaNacimiento, nacionalidad, estatura, peso, posicion);
+                Jugador jugador = new Jugador(nombre, apellido, fechaNac, nacionalidad, estatura, peso, posicion);
                 jugadores.add(jugador);
-                System.out.println("Jugador agregado correctamente.");
-                System.out.println(jugador.getNombre());
-                System.out.println(jugador.getApellido());
-                System.out.println(jugador.getFechaNac());
-                System.out.println(jugador.getNacionalidad());
-                System.out.println(jugador.getEstatura());
-                System.out.println(jugador.getPeso());
-                System.out.println(jugador.getPosicion());
+                System.out.println("\nJugador agregado correctamente.");               
             } catch (NumberFormatException | ArrayIndexOutOfBoundsException | InputMismatchException e) {
                 System.err.println("\nError: Formato de fecha incorrecto.");
             }
@@ -147,7 +140,7 @@ public class Main {
                 List<Jugador> jugadoresOrdenados = new ArrayList<>(jugadores);
                 Collections.sort(jugadoresOrdenados, Comparator.comparing(jugador -> jugador.getApellido().toLowerCase()));
                 for (Jugador jugador : jugadoresOrdenados) {
-                    System.out.println(jugador.getApellido());
+                    System.out.println(jugador.getApellido()+" "+jugador.getNombre());
                 }          
         }
         
