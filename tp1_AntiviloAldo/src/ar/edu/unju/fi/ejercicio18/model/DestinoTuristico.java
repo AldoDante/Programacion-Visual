@@ -1,66 +1,49 @@
 package ar.edu.unju.fi.ejercicio18.model;
 
 public class DestinoTuristico {
-	private String codigo;
-	private String nombre;
-	private Double precio;
-	private Pais pais;
-	private int cantDias;
-	
-	public DestinoTuristico(String codigo, String nombre, Double precio, Pais pais, int cantDias) {
-		super();
-		this.codigo = codigo;
-		this.nombre = nombre;
-		this.precio = precio;
-		this.pais = pais;
-		this.cantDias = cantDias;
-	}
+	  private String codigo;
+	    private String nombre;
+	    private double precio;
+	    private Pais pais;
+	    private int cantidadDias;
 
-	public String getCodigo() {
-		return codigo;
-	}
+	    public DestinoTuristico(String codigo, String nombre, double precio, Pais pais, int cantidadDias) {
+	        this.codigo = codigo;
+	        this.nombre = nombre;
+	        this.precio = precio;
+	        this.pais = pais;
+	        this.cantidadDias = cantidadDias;
+	    }
 
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
+	    public String getCodigo() {
+	        return codigo;
+	    }
 
-	public String getNombre() {
-		return nombre;
-	}
+	    public String getNombre() {
+	        return nombre;
+	    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+	    public double getPrecio() {
+	        return precio;
+	    }
 
-	public Double getPrecio() {
-		return precio;
-	}
+	    public Pais getPais() {
+	        return pais;
+	    }
 
-	public void setPrecio(Double precio) {
-		this.precio = precio;
-	}
+	    public void setPais(Pais pais) {
+	        this.pais = pais;
+	    }
 
-	public Pais getPais() {
-		return pais;
-	}
+	    public int getCantidadDias() {
+	        return cantidadDias;
+	    }
 
-	public void setPais(Pais pais) {
-		this.pais = pais;
-	}
+		@Override
+		public String toString() {
+			return "DestinoTuristico [codigo=" + codigo + ", nombre=" + nombre + ", precio=" + precio + ", pais=" + pais
+					+ ", cantidadDias=" + cantidadDias + "]";
+		}
 
-	public int getCantDias() {
-		return cantDias;
-	}
-
-	public void setCantDias(int cantDias) {
-		this.cantDias = cantDias;
-	}
-
-	@Override
-	public String toString() {
-		return "DestinoTuristico [codigo=" + codigo + ", nombre=" + nombre + ", precio=" + precio + ", pais=" + pais
-				+ ", cantDias=" + cantDias + "]";
-	}
-	
-	
+	   
 }
