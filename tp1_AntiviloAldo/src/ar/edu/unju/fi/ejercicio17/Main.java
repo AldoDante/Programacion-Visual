@@ -100,6 +100,8 @@ public class Main {
             
         }
         
+        // Mostrar datos del jugaror
+        
         private static void datosJugador(Scanner sc, List<Jugador> jugadores) {
         		sc.nextLine();
                 System.out.println("\nMostrar datos del jugador:");
@@ -129,6 +131,8 @@ public class Main {
             }                     
         }
         
+        //Mostrar datos de Jugadores Ordenados        
+      
         private static void mostrarOrdenados(List<Jugador> jugadores) {
            
                 System.out.println("\nMostrar todos los jugadores ordenados por apellido:");
@@ -138,6 +142,8 @@ public class Main {
                     System.out.println(jugador.getApellido()+" "+jugador.getNombre());
                 }          
         }
+        
+        // Modificar datos
         
         private static void modificarDatos(Scanner sc, List<Jugador> jugadores) {
         		sc.nextLine();
@@ -188,6 +194,8 @@ public class Main {
             
         }
         
+        //Eliminar Jugador
+        
         private static void eliminarJugador(Scanner sc, List<Jugador> jugadores) {
         	sc.nextLine();
         	if(jugadores.isEmpty()) {
@@ -225,6 +233,8 @@ public class Main {
         	}
         	
         }
+        
+        // Jugadores por nacionalidad 
         
         private static void JugadoresNacionalidad(Scanner sc, List<Jugador> jugadores) {
         	sc.nextLine();
